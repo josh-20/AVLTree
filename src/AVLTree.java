@@ -15,6 +15,8 @@
 // ******************ERRORS********************************
 // Throws UnderflowException as appropriate
 
+import org.w3c.dom.ls.LSOutput;
+
 /**
  * Implements an AVL tree.
  * Note that all "matching" is based on the compareTo method.
@@ -217,17 +219,28 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>>
      */
     private AvlNode<AnyType> findMin( AvlNode<AnyType> t )
     {
-        if( t == null )
+        if( t == null ) {
             return t;
+        }
 
-        while( t.left != null )
+        while( t.left != null ) {
             t = t.left;
+        }
         return t;
     }
 
-    private AvlNode<AnyType> deleteMin( AvlNode<AnyType> t )
-    {
-        return t;
+    private AvlNode<AnyType> deleteMin( AvlNode<AnyType> t) {
+        AvlNode<AnyType> Node = findMin(t);
+        System.out.println("--------------" + Node);
+       if (Node.right != null) {
+           Node.left = Node.left.right;
+       }
+       else {
+          Node.left = null;
+
+       }
+       return Node;
+
     }
 
     /**
@@ -235,8 +248,8 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>>
      * @param t the node that roots the tree.
      * @return node containing the largest item.
      */
-    private AvlNode<AnyType> findMax( AvlNode<AnyType> t )
-    {
+    private AvlNode<AnyType> findMax( AvlNode<AnyType> t){
+
         if( t == null )
             return t;
 
