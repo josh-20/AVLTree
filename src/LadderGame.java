@@ -4,11 +4,12 @@ import java.util.Random;
 import java.io.File;
 import java.util.ArrayList;
 
-public class LadderGame<E> {
+
+public class LadderGame <Anytype extends Comparable<? super Anytype>> {
     static int MaxWordSize = 15;
     ArrayList<String>[] allList;
     Random random;
-    LinkedList foundList = new LinkedList();
+    AVLTree<Anytype> foundList = new AVLTree<>();
 
     public LadderGame(String file) {
         random = new Random();
@@ -28,15 +29,15 @@ public class LadderGame<E> {
     }
 
     public void play(String a, String b) {
-        LinkedList lList = new LinkedList();
+        AVLTree<Anytype> lList = new AVLTree<>();
         if (a.length() != b.length()) {
             System.out.println("Words are not the same length");
             return;
         }
         if (a.length() >= MaxWordSize) return;
-        ArrayList list = new ArrayList();
+        AVLTree<Anytype> list = new AVLTree<>();
         ArrayList<String> l = allList[a.length()];
-        list = (ArrayList) l.clone();
+        list = (AVLTree<Anytype>) l.clone();
         System.out.println("Seeking a solution from " + a + " ->" + b + " Size of List " + l.size());
         find(a,b,list,lList);
     }
@@ -48,7 +49,7 @@ public class LadderGame<E> {
             String b = list.get(random.nextInt(list.size()));
             play(a, b);
         }
-        public void find(String a, String b, ArrayList l,LinkedList lList){
+        public void find(String a, String b, AVLTree<Anytype> l, AVLTree<Anytype> lList){
 
             lList.enqueue(new WordInfo(a,0,a));
             boolean found = false;

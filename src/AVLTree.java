@@ -60,7 +60,7 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>>
     private AvlNode<AnyType> remove( AnyType x, AvlNode<AnyType> t )
     {
         if( t == null )
-            return t;   // Item not found; do nothing
+            return t;   // Ite m not found; do nothing
 
         int compareResult = x.compareTo( t.element );
 
@@ -233,8 +233,7 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>>
         while (t.left != null){
             t = t.left;
         }
-         t = null;
-        balance(t);
+
 
 
 
