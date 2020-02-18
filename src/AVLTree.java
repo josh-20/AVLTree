@@ -91,7 +91,7 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>>
 
     public  void  deleteMin( ){
 
-        root =  deleteMin(root);
+        deleteMin(root);
     }
 
     /**
@@ -225,23 +225,21 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>>
 
         while( t.left != null ) {
             t = t.left;
-        }
+    }
         return t;
     }
 
-    private AvlNode<AnyType> deleteMin( AvlNode<AnyType> t) {
-        AvlNode<AnyType> Node = findMin(t);
-        System.out.println("--------------" + Node);
-       if (Node.right != null) {
-           Node.left = Node.left.right;
-       }
-       else {
-          Node.left = null;
+    private void deleteMin(AvlNode<AnyType> t) {
+        t = findMin(t);
+        if (t .right != null){
+            t.right = t;
+        }
+        else{
+            t = null;
+        } 
 
-       }
-       return Node;
 
-    }
+}
 
     /**
      * Internal method to find the largest item in a subtree.
@@ -377,6 +375,7 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>>
         AnyType           element;      // The data in the node
         AvlNode<AnyType>  left;         // Left child
         AvlNode<AnyType>  right;        // Right child
+        AvlNode<AnyType> parent;
         int               height;       // Height
     }
 
