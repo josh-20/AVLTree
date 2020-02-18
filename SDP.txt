@@ -12,3 +12,11 @@ Software Development Plan
 
 3. Seystem Design:
 	- DeleteMin Function: Itterate down the left side of the tree until i find the smallest value then i want to null it out.
+	- make my code for program one work with an AVL tree, the difference between program one and this program i need to look at the most promising tree in other words the best possible ladder that could possible have the next word being the solution.
+	Maybe while checking each word i find one that has more of the same letters as the start word i put that in the que as more of a priority.
+
+4. Implementation:
+
+Testing:
+	- Test 1:
+	- Test 2:
