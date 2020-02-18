@@ -230,13 +230,12 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>>
     }
 
     private void deleteMin(AvlNode<AnyType> t) {
-        t = findMin(t);
-        if (t .right != null){
-            t.right = t;
+        while (t.left != null){
+            t = t.left;
         }
-        else{
-            t = null;
-        } 
+         t = null;
+        balance(t);
+
 
 
 }
@@ -393,7 +392,7 @@ public class AVLTree<AnyType extends Comparable<? super AnyType>>
             t2.insert(new Dwarf(nameList[i]));
 
         t2.printTree( "The Tree" );
-
+        t2.insert(new Dwarf(("HELLO")));
         t2.remove(new Dwarf("Bashful"));
 
         t2.printTree( "The Tree after delete Bashful" );

@@ -1,0 +1,14 @@
+Software Development Plan
+
+1. Requitments Specifications:
+	- Change all variable names to be meaningful names.
+	- Make comments
+	- implement deleteMin function.
+	- re-Arrange program one to use an avl tree as a que instead of a binary search tree.
+
+2. System Analysis:
+	- Create a program that reuses program one's code to speed up results in finding a word through a word ladder.
+	- write a deleteMin function that deletes the smallest value in the avl tree.
+
+3. Seystem Design:
+	- DeleteMin Function: Itterate down the left side of the tree until i find the smallest value then i want to null it out.
