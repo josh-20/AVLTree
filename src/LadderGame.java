@@ -50,7 +50,7 @@ public class LadderGame <Anytype extends Comparable<? super Anytype>> {
             play(a, b);
         }
         public void find(String a, String b, AVLTree<Anytype> l, AVLTree<Anytype> lList){
- 
+
             lList.enqueue(new WordInfo(a,0,a));
             boolean found = false;
             try {
